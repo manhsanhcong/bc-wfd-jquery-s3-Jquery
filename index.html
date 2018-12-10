@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Function</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .sticky-offset {
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header style="text-align: center; font-size: xx-large; background-color: aliceblue">
+        Giới thiệu các hàm thông dụng của jQuery
+    </header>
+    <div class="row">
+        <div id="list-example" class="col-md-2 list-group-item list-group-item-action">
+            <div class=" sticky-top ">
+                <div class="nav flex-sm-column">
+                    <a href="#list-item-1" class="nav-link d-none d-sm-inline">find()</a>
+                    <a href="#list-item-2" class="nav-link">hide()</a>
+                    <a href="#list-item-3" class="nav-link">toggle()</a>
+                    <a href="#list-item-4" class="nav-link">show()</a>
+                    <a href="#list-item-5" class="nav-link">animate()</a>
+                    <a href="#list-item-6" class="nav-link">fadeIn()</a>
+                    <a href="#list-item-7" class="nav-link">fadeOut()</a>
+                    <a href="#list-item-8" class="nav-link">slideUp()</a>
+                    <a href="#list-item-9" class="nav-link">slideDown()</a>
+                    <a href="#list-item-10" class="nav-link">html()</a>
+                    <a href="#list-item-11" class="nav-link">append()</a>
+                    <a href="#list-item-12" class="nav-link">prepend()</a>
+                    <a href="#list-item-13" class="nav-link">on()</a>
+                    <a href="#list-item-14" class="nav-link">off()</a>
+                    <a href="#list-item-15" class="nav-link">css()</a>
+                    <a href="#list-item-16" class="nav-link">attr()</a>
+                    <a href="#list-item-17" class="nav-link">val()</a>
+                    <a href="#list-item-18" class="nav-link">text()</a>
+                    <a href="#list-item-19" class="nav-link">each()</a>
+                </div>
+            </div>
+        </div>
+        <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-md">
+            <h3 id="list-item-1">find()</h3>
+            <div style="margin-left: 30px">
+                <p>Get the descendants of each element in the current set of matched elements, filtered by a selector,
+                    jQuery object, or element.</p>
+                <b>Syntax:</b>
+                <p><b>.find(selector):</b> A string containing a selector expression to match elements against.</p>
+                <p><b>.find(element):</b> An element or a jQuery object to match elements against.</p>
+                <b>Example:</b>
+                <p><img src="1..jpg"/></p>
+                <p>Result</p>
+                <p><img src="2.jpg"></p>
+            </div>
+            <h3 id="list-item-2">hide()</h3>
+            <div style="margin-left: 30px">
+                <p> Hide the matched elements.</p>
+                <b>Syntax:</b>
+                <p><b>.hide():</b>This signature does not accept any arguments.</p>
+                <b>.hide([duration][,complete]):</b>
+                <p style="margin-left: 25px"><b>duration</b>(default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>complete</b>A function to call once the animation is complete, called
+                    once per matched element.</p>
+                <b>.hide(options):</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>queue</b> (default:true): A Boolean indicating whether to place the
+                    animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7,
+                    the queue option can also accept a string, in which case the animation is added to the queue
+                    represented by that string. When a custom queue name is used the animation does not automatically
+                    start; you must call .dequeue("queuename") to start it.</p>
+                <b>.hide(duration[,easing][,complete])</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>complete</b> (default:true): A function to call once the animation is
+                    complete, called once per matched element.</p>
+                <b>Example:</b>
+                <pre><xmp>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".btn1").click(function(){
+        $("p").hide();
+    });
+    $(".btn2").click(function(){
+        $("p").show();
+    });
+});
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+
+<button class="btn1">Hide</button>
+<button class="btn2">Show</button>
+
+</body>
+</html>
+                </xmp></pre>
+                <p><a href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_show_hide">Result</a></p>
+            </div>
+            <h3 id="list-item-3">toggle()</h3>
+            <div style="margin-left: 30px">
+                <p> Display or hide the matched elements.</p>
+                <b>Syntax:</b>
+                <b>.toggle([duration][,complete]):</b>
+                <p style="margin-left: 25px"><b>duration</b>(default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>complete</b>A function to call once the animation is complete, called
+                    once per matched element.</p>
+                <b>.toggle(options):</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>queue</b> (default:true): A Boolean indicating whether to place the
+                    animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7,
+                    the queue option can also accept a string, in which case the animation is added to the queue
+                    represented by that string. When a custom queue name is used the animation does not automatically
+                    start; you must call .dequeue("queuename") to start it.</p>
+                <b>.toggle(duration[,easing][,complete])</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>complete</b> (default:true): A function to call once the animation is
+                    complete, called once per matched element.</p>
+                <p><b>.toggle(display)</b>: Use true to show the element or false to hide it.</p>
+                <b>Example:</b>
+                <pre><xmp>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+    });
+});
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+
+<button>Toggle between hide() and show()</button>
+
+</body>
+</html>
+                </xmp></pre>
+                <p><a href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_toggle">Result</a></p>
+            </div>
+            <h3 id="list-item-4">show()</h3>
+            <div style="margin-left: 30px">
+                <p> Display the matched elements.</p>
+                <b>Syntax:</b>
+                <p><b>.hide():</b>This signature does not accept any arguments.</p>
+                <b>.hide([duration][,complete]):</b>
+                <p style="margin-left: 25px"><b>duration</b>(default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>complete</b>A function to call once the animation is complete, called
+                    once per matched element.</p>
+                <b>.hide(options):</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>queue</b> (default:true): A Boolean indicating whether to place the
+                    animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7,
+                    the queue option can also accept a string, in which case the animation is added to the queue
+                    represented by that string. When a custom queue name is used the animation does not automatically
+                    start; you must call .dequeue("queuename") to start it.</p>
+                <b>.hide(duration[,easing][,complete])</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>complete</b> (default:true): A function to call once the animation is
+                    complete, called once per matched element.</p>
+                <b>Example:</b>
+                <pre><xmp>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".btn1").click(function(){
+        $("p").hide();
+    });
+    $(".btn2").click(function(){
+        $("p").show();
+    });
+});
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+
+<button class="btn1">Hide</button>
+<button class="btn2">Show</button>
+
+</body>
+</html>
+                </xmp></pre>
+                <p><a href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_show_hide">Result</a></p>
+            </div>
+            <h3 id="list-item-5">animate()</h3>
+            <div style="margin-left: 30px">
+                <p> Perform a custom animation of a set of CSS properties.</p>
+                <b>Syntax:</b>
+                <p><b>.animate(properties[,duration][,easing][,complete])</b></p>
+                <p style="margin-left: 25px"><b>properties:</b> An object of CSS properties and values that
+                    the animation will move toward.</p>
+                <p style="margin-left: 25px"><b>duration</b>(default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>complete</b>A function to call once the animation is complete, called
+                    once per matched element.</p>
+                <b>.animate(properties, options):</b>
+                <p style="margin-left: 25px"><b>duration</b> (default:400): A string or number determining how long the
+                    animation will run.</p>
+                <p style="margin-left: 25px"><b>easing</b> A string indicating which easing function to use for the
+                    transition.</p>
+                <p style="margin-left: 25px"><b>queue</b> (default:true): A Boolean indicating whether to place the
+                    animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7,
+                    the queue option can also accept a string, in which case the animation is added to the queue
+                    represented by that string. When a custom queue name is used the animation does not automatically
+                    start; you must call .dequeue("queuename") to start it.</p>
+                <b>Example:</b>
+                <pre><xmp>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#box").animate({height: "300px"});
+    });
+    $("#btn2").click(function(){
+        $("#box").animate({height: "100px"});
+    });
+});
+</script>
+</head>
+<body>
+
+<button id="btn1">Animate height</button>
+<button id="btn2">Reset height</button>
+
+<div id="box" style="background:#98bf21;height:100px;width:100px;margin:6px;"></div>
+
+</body>
+</html>
+                </xmp></pre>
+                <p><a href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate">Result</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
